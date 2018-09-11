@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Werzid.WebApi.Providers;
 using Werzid.WebApi.Models;
+using Werzid.Data.IdentityModels;
 
 namespace Werzid.WebApi
 {
