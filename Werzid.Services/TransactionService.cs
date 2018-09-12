@@ -20,7 +20,7 @@ namespace Werzid.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TransactionListItem> GetTransaction()
+        public IEnumerable<TransactionListItem> GetTransactions()
         {
             throw new NotImplementedException();
         }

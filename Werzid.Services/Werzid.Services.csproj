@@ -75,12 +75,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Werzid.Contracts\Werzid.Contracts.csproj">
+      <Project>{4FD59956-0F47-47F4-8C55-658532CC18B7}</Project>
+      <Name>Werzid.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Werzid.Data\Werzid.Data.csproj">
+      <Project>{F4AC5FAD-2FE1-43AE-9099-30C2CC63D341}</Project>
+      <Name>Werzid.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Werzid.Models\Werzid.Models.csproj">
+      <Project>{E4C65A6F-7967-45AF-94C1-DADA8F59BF3C}</Project>
+      <Name>Werzid.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,7 +28,7 @@ namespace Werzid.Services
             }
         }
 
-        public IEnumerable<ProductListItem> GetProduct()
+        public IEnumerable<ProductListItem> GetProducts()
         {
             using (var ctx = new ApplicationDbContext())
             {

@@ -234,6 +234,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -306,6 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -340,6 +342,14 @@
     <ProjectReference Include="..\Werzid.Data\Werzid.Data.csproj">
       <Project>{F4AC5FAD-2FE1-43AE-9099-30C2CC63D341}</Project>
       <Name>Werzid.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Werzid.Models\Werzid.Models.csproj">
+      <Project>{e4c65a6f-7967-45af-94c1-dada8f59bf3c}</Project>
+      <Name>Werzid.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Werzid.Services\Werzid.Services.csproj">
+      <Project>{f67ca7d6-2476-4c0c-8e75-1e10506d9683}</Project>
+      <Name>Werzid.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
