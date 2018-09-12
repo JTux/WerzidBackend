@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Werzid.Models
+namespace Werzid.Models.TransactionModels
 {
-    public class Class1
+    public class TransactionListItem
     {
     }
 }
