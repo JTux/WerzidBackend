@@ -8,5 +8,9 @@ namespace Werzid.Models.ProductModels
 {
     public class ProductCreate
     {
+        public string ProductName { get; set; }
+        public decimal ProductPrice { get; set; }
+        public string ProductionDescription { get; set; }
+        //ProductImage
     }
 }

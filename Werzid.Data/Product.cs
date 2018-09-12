@@ -13,13 +13,13 @@ namespace Werzid.Data
         public int ProductID { get; set; }
 
         [Required]
-        public int OwnerID { get; set; }
+        public string ProductName { get; set; }
 
         [Required]
-        public decimal Price { get; set; }
+        public decimal ProductPrice { get; set; }
 
         [Required]
-        public string Description { get; set; }
+        public string ProductDescription { get; set; }
 
         //Image
     }
