@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Werzid.Data
-{
+{   
     public class Transaction
     {
         [Required]

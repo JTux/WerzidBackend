@@ -29,6 +29,7 @@ namespace Werzid.Data.IdentityModels
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         public static ApplicationDbContext Create()
         {
