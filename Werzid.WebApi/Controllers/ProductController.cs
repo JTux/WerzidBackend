@@ -1,103 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 using Werzid.Models.ProductModels;
 using Werzid.Services;
 
 namespace Werzid.WebApi.Controllers
 {
-    public class ProductController : Controller
+    [Authorize]
+    public class ProductController : ApiController
     {
-        public ActionResult Index()
+        public IHttpActionResult GetAll()
         {
-            var service = new ProductService();
-            return View(service.GetProducts());
+            ProductService productService = new ProductService();
+            var products = productService.GetProducts();
+            return Ok(products);
         }
 
-        public ActionResult Create()
+        public IHttpActionResult Get(int id)
         {
-            return View();
+            ProductService productService = new ProductService();
+            var note = productService.GetProductByID(id);
+            return Ok(note);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(ProductCreate model)
+        public IHttpActionResult Post(ProductCreate product)
         {
-            if (!ModelState.IsValid) return View(model);
-
-            var service = new ProductService();
-
-            if (service.CreateProduct(model))
-            {
-                return RedirectToAction("Index");
-            }
-
-            return View(model);
-        }
-
-        public ActionResult Details(int id)
-        {
-            var service = new ProductService();
-            return View(service.GetProductByID(id));
-        }
-
-        public ActionResult Edit(int id)
-        {
-            var service = new ProductService();
-            var detail = service.GetProductByID(id);
-            var model =
-                new ProductEdit
-                {
-                    ProductID = detail.ProductID,
-                    ProductName = detail.ProductName,
-                    ProductionDescription = detail.ProductionDescription,
-                    ProductPrice = detail.ProductPrice
-                };
-            return View(model);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ProductEdit model)
-        {
-            if (!ModelState.IsValid) return View(model);
-
-            if (model.ProductID != id)
-            {
-                ModelState.AddModelError("", "Ids are mismatched");
-                return View(model);
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var service = new ProductService();
 
-            if (service.UpdateProduct(model))
-            {
-                TempData["SaveResult"] = "Product has been updated.";
-                return RedirectToAction("Index");
-            }
+            if (!service.CreateProduct(product))
+                return InternalServerError();
 
-            ModelState.AddModelError("", "Product could not be updated.");
-            return View(model);
+            return Ok();
         }
 
-        [ActionName("Delete")]
-        public ActionResult Delete(int id)
+        public IHttpActionResult Put(ProductEdit product)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var service = new ProductService();
-            return View(service.GetProductByID(id));
+
+            if (!service.UpdateProduct(product))
+                return InternalServerError();
+
+            return Ok();
         }
 
-        [HttpPost]
-        [ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeletePost(int id)
+        public IHttpActionResult Delete(int id)
         {
             var service = new ProductService();
-            service.DeleteProduct(id);
-            TempData["SaveResult"] = "Product was deleted.";
-            return RedirectToAction("Index");
+
+            if (!service.DeleteProduct(id))
+                return InternalServerError();
+
+            return Ok();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Werzid.Services
             var entity = new Product()
             {
                 ProductName = model.ProductName,
-                ProductDescription = model.ProductionDescription,
+                ProductDescription = model.ProductDescription,
                 ProductPrice = model.ProductPrice
             };
 
