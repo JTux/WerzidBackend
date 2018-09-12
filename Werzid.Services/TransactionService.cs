@@ -28,7 +28,7 @@ namespace Werzid.Services
             }
         }
 
-        public IEnumerable<TransactionListItem> GetTransaction()
+        public IEnumerable<TransactionListItem> GetTransactions()
         {
             using (var ctx = new ApplicationDbContext())
             {

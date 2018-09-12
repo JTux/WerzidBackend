@@ -10,7 +10,7 @@ namespace Werzid.Contracts
     public interface ITransactionService
     {
         bool CreateTransaction(TransactionCreate model);
-        IEnumerable<TransactionListItem> GetTransaction();
+        IEnumerable<TransactionListItem> GetTransactions();
         TransactionDetail GetTransactionByID(int transactionID);
         bool UpdateTransaction(TransactionEdit model);
         bool DeleteTransaction(int TransactionID);

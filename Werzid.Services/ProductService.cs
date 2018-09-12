@@ -17,7 +17,7 @@ namespace Werzid.Services
             var entity = new Product()
             {
                 ProductName = model.ProductName,
-                ProductDescription = model.ProductionDescription,
+                ProductDescription = model.ProductDescription,
                 ProductPrice = model.ProductPrice
             };
 
@@ -28,7 +28,7 @@ namespace Werzid.Services
             }
         }
 
-        public IEnumerable<ProductListItem> GetProduct()
+        public IEnumerable<ProductListItem> GetProducts()
         {
             using (var ctx = new ApplicationDbContext())
             {

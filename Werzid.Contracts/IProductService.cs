@@ -10,7 +10,7 @@ namespace Werzid.Contracts
     public interface IProductService
     {
         bool CreateProduct(ProductCreate model);
-        IEnumerable<ProductListItem> GetProduct();
+        IEnumerable<ProductListItem> GetProducts();
         ProductDetail GetProductByID(int productID);
         bool UpdateProduct(ProductEdit model);
         bool DeleteProduct(int productID);
