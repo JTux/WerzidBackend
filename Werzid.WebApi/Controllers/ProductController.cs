@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,8 +23,8 @@ namespace Werzid.WebApi.Controllers
         public IHttpActionResult Get(int id)
         {
             ProductService productService = new ProductService();
-            var note = productService.GetProductByID(id);
-            return Ok(note);
+            var product = productService.GetProductByID(id);
+            return Ok(product);
         }
 
         public IHttpActionResult Post(ProductCreate product)

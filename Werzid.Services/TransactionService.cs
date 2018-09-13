@@ -12,17 +12,26 @@ namespace Werzid.Services
 {
     public class TransactionService : ITransactionService
     {
+        private readonly Guid _userID;
+
+        public TransactionService(Guid userID)
+        {
+            _userID = userID;
+        }
+
         public bool CreateTransaction(TransactionCreate model)
         {
-            var entity = new Transaction()
-            {
-                ProductQuantity = model.ProductQuantity,
-                Purchased = model.Purchased
-            };
-
-
             using (var ctx = new ApplicationDbContext())
             {
+                var entity = new Transaction()
+                {
+                    OwnerID = _userID,
+                    ProductID = model.ProductID,
+                    ProductQuantity = model.ProductQuantity,
+                    TotalPrice = ((ctx.Products.Single(e=>e.ProductID == model.ProductID)).ProductPrice) * model.ProductQuantity,
+                    Purchased = model.Purchased
+                };
+
                 ctx.Transactions.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -35,6 +44,7 @@ namespace Werzid.Services
                 var query =
                     ctx
                         .Transactions
+                        .Where(e => e.OwnerID == _userID)
                         .Select(
                             e =>
                                 new TransactionListItem
@@ -42,6 +52,7 @@ namespace Werzid.Services
                                     TransactionID = e.TransactionID,
                                     ProductID = e.ProductID,
                                     ProductQuantity = e.ProductQuantity,
+                                    TotalPrice = e.TotalPrice,
                                     Purchased = e.Purchased
                                 }
                         );
@@ -62,6 +73,7 @@ namespace Werzid.Services
                         TransactionID = entity.TransactionID,
                         ProductID = entity.ProductID,
                         ProductQuantity = entity.ProductQuantity,
+                        TotalPrice = entity.TotalPrice,
                         Purchased = entity.Purchased
                     };
             }
@@ -76,13 +88,12 @@ namespace Werzid.Services
                 entity.TransactionID = model.TransactionID;
                 entity.ProductID = model.ProductID;
                 entity.ProductQuantity = model.ProductQuantity;
+                entity.TotalPrice = model.TotalPrice;
                 entity.Purchased = model.Purchased;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-    
-
 
         public bool DeleteTransaction(int transactionID)
         {
@@ -95,5 +106,5 @@ namespace Werzid.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-    }   
+    }
 }
