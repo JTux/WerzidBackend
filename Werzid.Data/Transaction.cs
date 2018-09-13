@@ -13,9 +13,15 @@ namespace Werzid.Data
         public int TransactionID { get; set; }
 
         [Required]
+        public Guid OwnerID { get; set; }
+
+        [Required]
         public int ProductID { get; set; }
 
-        public Product Product { get; set; }
+        public virtual Product TransactionProduct { get; set; }
+
+        [Required]
+        public decimal TotalPrice { get; set; }
 
         [Required]
         public int ProductQuantity { get; set; }
