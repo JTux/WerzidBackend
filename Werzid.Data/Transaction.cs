@@ -21,11 +21,13 @@ namespace Werzid.Data
         public virtual Product TransactionProduct { get; set; }
 
         [Required]
-        public decimal TotalPrice { get; set; }
-
-        [Required]
         public int ProductQuantity { get; set; }
 
+        [Required]
+        public decimal TotalPrice { get; set; }
+
         public bool Purchased { get; set; }
+
+        public DateTime PurchaseDate { get; set; }
     }
 }
