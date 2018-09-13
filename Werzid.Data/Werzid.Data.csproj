@@ -76,6 +76,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\201809121845115_InitialCreate.cs" />
+    <Compile Include="Migrations\201809121845115_InitialCreate.Designer.cs">
+      <DependentUpon>201809121845115_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809122236420_addedtransactions.cs" />
+    <Compile Include="Migrations\201809122236420_addedtransactions.Designer.cs">
+      <DependentUpon>201809122236420_addedtransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809122245230_fixedtransactionproperty.cs" />
+    <Compile Include="Migrations\201809122245230_fixedtransactionproperty.Designer.cs">
+      <DependentUpon>201809122245230_fixedtransactionproperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131445235_transactionvalueschanged.cs" />
+    <Compile Include="Migrations\201809131445235_transactionvalueschanged.Designer.cs">
+      <DependentUpon>201809131445235_transactionvalueschanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809131454396_transactionpriceadded.cs" />
+    <Compile Include="Migrations\201809131454396_transactionpriceadded.Designer.cs">
+      <DependentUpon>201809131454396_transactionpriceadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs" />
@@ -83,6 +104,23 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809121845115_InitialCreate.resx">
+      <DependentUpon>201809121845115_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809122236420_addedtransactions.resx">
+      <DependentUpon>201809122236420_addedtransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809122245230_fixedtransactionproperty.resx">
+      <DependentUpon>201809122245230_fixedtransactionproperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131445235_transactionvalueschanged.resx">
+      <DependentUpon>201809131445235_transactionvalueschanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809131454396_transactionpriceadded.resx">
+      <DependentUpon>201809131454396_transactionpriceadded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
