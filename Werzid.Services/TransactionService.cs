@@ -88,7 +88,7 @@ namespace Werzid.Services
                 entity.TransactionID = model.TransactionID;
                 entity.ProductID = model.ProductID;
                 entity.ProductQuantity = model.ProductQuantity;
-                entity.TotalPrice = model.TotalPrice;
+                entity.TotalPrice = ((ctx.Products.Single(e => e.ProductID == model.ProductID)).ProductPrice) * model.ProductQuantity;
                 entity.Purchased = model.Purchased;
 
                 return ctx.SaveChanges() == 1;
