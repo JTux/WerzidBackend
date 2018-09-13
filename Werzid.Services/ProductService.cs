@@ -61,7 +61,7 @@ namespace Werzid.Services
                     {
                         ProductID = entity.ProductID,
                         ProductName = entity.ProductName,
-                        ProductionDescription = entity.ProductDescription,
+                        ProductDescription = entity.ProductDescription,
                         ProductPrice = entity.ProductPrice
                     };
             }
@@ -75,7 +75,7 @@ namespace Werzid.Services
 
                 entity.ProductID = model.ProductID;
                 entity.ProductName = model.ProductName;
-                entity.ProductDescription = model.ProductionDescription;
+                entity.ProductDescription = model.ProductDescription;
                 entity.ProductPrice = model.ProductPrice;
 
                 return ctx.SaveChanges() == 1;

@@ -13,7 +13,9 @@ namespace Werzid.Data
         public int TransactionID { get; set; }
 
         [Required]
-        public Product ProductID { get; set; }
+        public int ProductID { get; set; }
+
+        public Product Product { get; set; }
 
         [Required]
         public int ProductQuantity { get; set; }

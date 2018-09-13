@@ -10,7 +10,7 @@ namespace Werzid.Models.TransactionModels
     public class TransactionDetail
     {
         public int TransactionID { get; set; }
-        public Product ProductID { get; set; }
+        public int ProductID { get; set; }
         public int ProductQuantity { get; set; }
         public bool Purchased { get; set; }
     }
