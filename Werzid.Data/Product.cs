@@ -21,6 +21,6 @@ namespace Werzid.Data
         [Required]
         public string ProductDescription { get; set; }
 
-        //Image
+        public string ProductImagePath { get; set; }
     }
 }
