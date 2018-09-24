@@ -80,6 +80,8 @@
     <Compile Include="ProductModels\ProductEdit.cs" />
     <Compile Include="ProductModels\ProductListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StripeModels\ChargeModel.cs" />
+    <Compile Include="StripeModels\StripeProduct.cs" />
     <Compile Include="TransactionModels\TransactionCreate.cs" />
     <Compile Include="TransactionModels\TransactionDetail.cs" />
     <Compile Include="TransactionModels\TransactionEdit.cs" />
