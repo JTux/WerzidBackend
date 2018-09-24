@@ -14,5 +14,6 @@ namespace Werzid.Models.TransactionModels
         public int ProductQuantity { get; set; }
         public decimal TotalPrice { get; set; }
         public bool Purchased { get; set; }
+        public DateTime PurchaseDate { get; set; }
     }
 }
