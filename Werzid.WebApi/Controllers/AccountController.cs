@@ -20,10 +20,6 @@ using Werzid.WebApi.Results;
 
 namespace Werzid.WebApi.Controllers
 {
-    #if !DEBUG
-        [RequireHttps]
-    #endif
-
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
