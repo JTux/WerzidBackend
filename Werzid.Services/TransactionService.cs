@@ -28,7 +28,7 @@ namespace Werzid.Services
                     OwnerID = _userID,
                     ProductID = model.ProductID,
                     ProductQuantity = model.ProductQuantity,
-                    TotalPrice = ((ctx.Products.Single(e=>e.ProductID == model.ProductID)).ProductPrice) * model.ProductQuantity,
+                    TotalPrice = ((ctx.Products.Single(e => e.ProductID == model.ProductID)).ProductPrice) * model.ProductQuantity,
                     Purchased = model.Purchased
                 };
 
@@ -65,7 +65,7 @@ namespace Werzid.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Transactions.Single(e => e.TransactionID == transactionID);
+                var entity = ctx.Transactions.Where(e => e.OwnerID == _userID).Single(e => e.TransactionID == transactionID);
 
                 return
                     new TransactionDetail
@@ -83,7 +83,7 @@ namespace Werzid.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Transactions.Single(e => e.TransactionID == model.TransactionID);
+                var entity = ctx.Transactions.Where(e => e.OwnerID == _userID).Single(e => e.TransactionID == model.TransactionID);
 
                 entity.TransactionID = model.TransactionID;
                 entity.ProductID = model.ProductID;
@@ -99,7 +99,7 @@ namespace Werzid.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Transactions.Single(e => e.TransactionID == transactionID);
+                var entity = ctx.Transactions.Where(e => e.OwnerID == _userID).Single(e => e.TransactionID == transactionID);
 
                 ctx.Transactions.Remove(entity);
 
