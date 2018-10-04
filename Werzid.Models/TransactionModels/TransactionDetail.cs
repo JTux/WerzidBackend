@@ -9,6 +9,7 @@ namespace Werzid.Models.TransactionModels
 {
     public class TransactionDetail
     {
+        public Guid OwnerID { get; set; }
         public int TransactionID { get; set; }
         public int ProductID { get; set; }
         public int ProductQuantity { get; set; }

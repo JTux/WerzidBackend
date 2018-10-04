@@ -10,7 +10,6 @@ using Werzid.Services;
 
 namespace Werzid.WebApi.Controllers
 {
-    [Authorize]
     public class ProductController : ApiController
     {
         public IHttpActionResult GetAll()
@@ -27,6 +26,7 @@ namespace Werzid.WebApi.Controllers
             return Ok(product);
         }
 
+        [Authorize]
         public IHttpActionResult Post(ProductCreate product)
         {
             if (!ModelState.IsValid)

@@ -18,7 +18,8 @@ namespace Werzid.Services
             {
                 ProductName = model.ProductName,
                 ProductDescription = model.ProductDescription,
-                ProductPrice = model.ProductPrice
+                ProductPrice = model.ProductPrice,
+                ProductImagePath = model.ProductImagePath
             };
 
             using(var ctx = new ApplicationDbContext())
@@ -42,7 +43,8 @@ namespace Werzid.Services
                                     ProductID = e.ProductID,
                                     ProductName = e.ProductName,
                                     ProductDescription = e.ProductDescription,
-                                    ProductPrice = e.ProductPrice
+                                    ProductPrice = e.ProductPrice,
+                                    ProductImagePath = e.ProductImagePath
                                 }
                         );
                 var queryArray = query.ToArray();
@@ -62,7 +64,8 @@ namespace Werzid.Services
                         ProductID = entity.ProductID,
                         ProductName = entity.ProductName,
                         ProductDescription = entity.ProductDescription,
-                        ProductPrice = entity.ProductPrice
+                        ProductPrice = entity.ProductPrice,
+                        ProductImagePath = entity.ProductImagePath
                     };
             }
         }
@@ -77,6 +80,7 @@ namespace Werzid.Services
                 entity.ProductName = model.ProductName;
                 entity.ProductDescription = model.ProductDescription;
                 entity.ProductPrice = model.ProductPrice;
+                entity.ProductImagePath = model.ProductImagePath;
 
                 return ctx.SaveChanges() == 1;
             }
